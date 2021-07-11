@@ -1,4 +1,4 @@
-export default function download() {
+export function download() {
   const element = document.createElement('a');
   element.setAttribute('href', 'data:text/plain;charset=utf-8,' + encodeURIComponent('label start:'));
   element.setAttribute('download', 'renpy-converter.rpy');
@@ -11,3 +11,5 @@ export default function download() {
   document.body.removeChild(element);
 }
 
+
+download();
