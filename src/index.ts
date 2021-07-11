@@ -1,8 +1,13 @@
+export default function download() {
+  const element = document.createElement('a');
+  element.setAttribute('href', 'data:text/plain;charset=utf-8,' + encodeURIComponent('label start:'));
+  element.setAttribute('download', 'renpy-converter.rpy');
 
-function component() {
-  const element: HTMLDivElement = document.createElement('div');
-  element.innerHTML = "hello world from typescript";
-  return element;
+  element.style.display = 'none';
+  document.body.appendChild(element);
+
+  element.click();
+
+  document.body.removeChild(element);
 }
 
-document.body.appendChild(component());
