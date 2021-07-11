@@ -1,0 +1,12 @@
+{
+  "files.associations": {
+      "*.js": "javascript",
+      "*.ts" : "typescript"
+    },
+  "editor.codeActionsOnSave": {
+    "source.fixAll.eslint": true
+  },
+  "eslint.validate": [
+    "javascript", "typescript"
+  ]
+}
