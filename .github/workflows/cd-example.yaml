@@ -1,0 +1,40 @@
+name: CD Example
+
+on:
+  push:
+    branches: [ main ]
+
+  workflow_dispatch:
+
+jobs:
+  ci:
+    name: Build
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+      - uses: actions/setup-node@v2
+      - run: npm ci
+        working-directory: example
+      - run: npm run build
+        working-directory: example
+      - uses: actions/upload-artifact@v2
+        with:
+          name: example-dist
+          path: example/dist
+          if-no-files-found: error
+          
+  deploy_test:
+    name: Deploy to Azure Static Web App
+    needs: ci
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/download-artifact@v2
+        with:
+          name: example-dist
+          path: example-dist
+      - uses: Azure/static-web-apps-deploy@v1
+        with:
+          skip_app_build: true
+          app_location: example-dist
+          action: upload
+          azure_static_web_apps_api_token: ${{ secrets.AZURE_STATIC_WEB_APP_API_TOKEN }}
