@@ -1,0 +1,29 @@
+{
+  "name": "renpy-converter",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/lore-hub-app/renpy-converter.git"
+  },
+  "bugs": {
+    "url": "https://github.com/lore-hub-app/renpy-converter/issues"
+  },
+  "homepage": "https://github.com/lore-hub-app/renpy-converter#readme",
+  "scripts": {
+    "test": "jest"
+  },
+  "author": "Andrei Kniazev <worldpwn@hotmail.com>",
+  "license": "ISC",
+  "devDependencies": {
+    "@babel/preset-env": "^7.15.4",
+    "@tsconfig/recommended": "^1.0.1",
+    "@types/jest": "^27.0.1",
+    "jest": "^27.1.0",
+    "typescript": "^4.4.2"
+  },
+  "dependencies": {
+    "@babel/preset-typescript": "^7.15.0"
+  }
+}
