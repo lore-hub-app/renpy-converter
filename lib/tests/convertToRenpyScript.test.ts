@@ -78,37 +78,4 @@ label start:
 
     expect(result).toStrictEqual(expected);
   });
-
-  test("5-branching-dialog should convert", () => {
-    // arrange
-    const expected = `define oliver_vertran = Character('Оливер Вертран')
-define kristian_orvood = Character('Кристиан Орвуд')
-
-label start:
-    menu:
-        kristian_orvood "— Почему ты оставил меня?"
-
-        "— Я не хотел!":
-            jump a
-
-        "— Ты заслужил этого!":
-            jump b
-
-label a:
-    "Кристиан обнимает Оливера."
-    oliver_vertran "— Прости меня..."
-
-label b:
-    kristian_orvood "— После всего что я для тебя сделал!"
-    "Оливер убегает."\n`;
-
-    const json = getLoreHubJson(with_refs_explicit_names);
-    const nodes = getNodes(json);
-    const characters = getCharacters(json.documents);
-
-    // act
-    const result = convertToRenpyScript(nodes, characters);
-
-    expect(result).toStrictEqual(expected);
-  });
 });
