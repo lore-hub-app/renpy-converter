@@ -1,13 +1,28 @@
 import getNodes from "../src/internal/getNodes";
+import empty from "./jsonExamples/0-empty";
 import plain_text_dialog_single_line from "./jsonExamples/1-plain-text-dialog-single-line";
 import plain_text_multiple_line from "./jsonExamples/2-plain-text-multiple-line";
-import with_refs from './jsonExamples/3-with-refs';
-import with_refs_explicit_names from './jsonExamples/4-with-refs-explicit-names'
+import with_refs from "./jsonExamples/3-with-refs";
+import with_refs_explicit_names from "./jsonExamples/4-with-refs-explicit-names";
 import DialogNode from "../src/internal/entities/DialogNode";
 import getLoreHubJson from "../src/internal/getLoreHubJson";
-import { ContentReference, ContentText } from "../src/internal/entities/Content";
+import {
+  ContentReference,
+  ContentText,
+} from "../src/internal/entities/Content";
 
 describe("getNodes", () => {
+  test("Should throw an error when nodes array is empty", () => {
+    const json = getLoreHubJson(empty);
+
+    expect(() => getNodes(json)).toThrowError();
+  });
+
+  // test("Should return nothing when nodes array is empty", () => {
+  //   const json = getLoreHubJson(empty);
+
+  //   expect(getNodes(json)).toStrictEqual([]);
+  // });
 
   test("1-plain-text-dialog-single-line should convert", () => {
     // arrange
@@ -61,7 +76,8 @@ describe("getNodes", () => {
         [
           new ContentReference("7f8f54e2-ba62-453d-b6e6-d9b99f29bdbc", null),
           new ContentText("- Hi, Oliver!"),
-        ]),
+        ]
+      )
     );
     expected.push(
       new DialogNode(
@@ -69,18 +85,14 @@ describe("getNodes", () => {
         "50f9eca5-5924-4b92-80c2-716ae213f9a1",
         [
           new ContentReference("1d45bcdc-7e32-4b57-9779-b924bbce93c1", null),
-          new ContentText("- How are you!")
+          new ContentText("- How are you!"),
         ]
       )
     );
     expected.push(
-      new DialogNode(
-        "50f9eca5-5924-4b92-80c2-716ae213f9a1",
-        "",
-        [
-          new ContentText("Boys hugs."),
-        ]
-      )
+      new DialogNode("50f9eca5-5924-4b92-80c2-716ae213f9a1", "", [
+        new ContentText("Boys hugs."),
+      ])
     );
 
     const json = getLoreHubJson(with_refs);
@@ -101,26 +113,26 @@ describe("getNodes", () => {
         [
           new ContentReference("7f8f54e2-ba62-453d-b6e6-d9b99f29bdbc", "Kael"),
           new ContentText("- Hi, Oliver!"),
-        ]),
+        ]
+      )
     );
     expected.push(
       new DialogNode(
         "41aecaf4-350f-468e-8ba9-9498c47de447",
         "50f9eca5-5924-4b92-80c2-716ae213f9a1",
         [
-          new ContentReference("1d45bcdc-7e32-4b57-9779-b924bbce93c1", "Oliver"),
-          new ContentText("- How are you!")
+          new ContentReference(
+            "1d45bcdc-7e32-4b57-9779-b924bbce93c1",
+            "Oliver"
+          ),
+          new ContentText("- How are you!"),
         ]
       )
     );
     expected.push(
-      new DialogNode(
-        "50f9eca5-5924-4b92-80c2-716ae213f9a1",
-        "",
-        [
-          new ContentText("Boys hugs."),
-        ]
-      )
+      new DialogNode("50f9eca5-5924-4b92-80c2-716ae213f9a1", "", [
+        new ContentText("Boys hugs."),
+      ])
     );
 
     const json = getLoreHubJson(with_refs_explicit_names);
