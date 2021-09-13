@@ -7,7 +7,7 @@
     "lib": "lib"
   },
   "scripts": {
-    "lint": "eslint . --fix",
+    "lint": "eslint . --ext .js,.ts --fix",
     "prettify": "prettier . --write",
     "prepare": "husky install"
   },
@@ -19,13 +19,14 @@
     "@typescript-eslint/eslint-plugin": "^4.31.1",
     "@typescript-eslint/parser": "^4.31.1",
     "eslint": "^7.32.0",
-    "eslint-config-airbnb": "^18.2.1",
+    "eslint-config-airbnb-base": "^14.2.1",
     "eslint-config-prettier": "^8.3.0",
     "eslint-import-resolver-typescript": "^2.5.0",
     "eslint-plugin-import": "^2.24.2",
     "eslint-plugin-prettier": "^4.0.0",
     "husky": "^7.0.0",
     "lint-staged": "^11.1.2",
-    "prettier": "^2.4.0"
+    "prettier": "^2.4.0",
+    "typescript": "^4.4.3"
   }
 }
