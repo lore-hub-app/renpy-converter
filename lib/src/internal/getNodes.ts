@@ -9,7 +9,6 @@ export default function getNodes(json: LoreHubJson): Array<DialogNode> {
   orderedNodes.push(startNode);
   let nextNode: LoreHubJsonNode | undefined = startNode;
   while (nextNode != null && nextNode.next_node_id != null) {
-    // eslint-disable-next-line
     nextNode = json.nodes.find((n) => n.id === nextNode?.next_node_id);
     if (nextNode == null) break;
     orderedNodes.push(nextNode);
