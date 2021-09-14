@@ -16,7 +16,7 @@ export default function getNodes(json: LoreHubJson): Array<DialogNode> {
 
   const result = [];
   for (let i = 0; i < orderedNodes.length; i += 1) {
-    const node = DialogNode.buildFromUnknown(orderedNodes[i]);
+    const node = DialogNode.buildNode(orderedNodes[i]);
     result.push(node);
   }
   return result;

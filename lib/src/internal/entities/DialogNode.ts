@@ -12,9 +12,9 @@ export default class DialogNode {
     public readonly id: string,
     public readonly next_node_id: string | null,
     public readonly contents: Array<Content>
-  ) {}
+  ) { }
 
-  static buildFromUnknown(data: LoreHubJsonNode): DialogNode {
+  static buildNode(data: LoreHubJsonNode): DialogNode {
     const contents = [];
     for (let i = 0; i < data.contents.length; i += 1) {
       contents.push(buildContent(data.contents[i]));
