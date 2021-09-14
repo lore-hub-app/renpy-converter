@@ -2,7 +2,7 @@ import { describe, expect, test } from "@jest/globals";
 
 import getNodes from "../src/internal/getNodes";
 import plain_text_dialog_single_line from "./jsonExamples/1-plain-text-dialog-single-line";
-import plain_text_dialog_single_line_wrong_order from './jsonExamples//1a-plain-text-dialog-single-line-wrong-order';
+import plain_text_dialog_single_line_wrong_order from "./jsonExamples/1a-plain-text-dialog-single-line-wrong-order";
 import plain_text_multiple_line from "./jsonExamples/2-plain-text-multiple-line";
 import with_refs from "./jsonExamples/3-with-refs";
 import with_refs_explicit_names from "./jsonExamples/4-with-refs-explicit-names";

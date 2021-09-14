@@ -13,6 +13,7 @@
   "homepage": "https://github.com/lore-hub-app/renpy-converter#readme",
   "scripts": {
     "lint": "eslint . --ext .js,.ts --fix",
+    "lint-check": "eslint . --ext .js,.ts",
     "prettify": "prettier . --write",
     "prepare": "cd .. && husky install lib/.husky",
     "test": "jest"
