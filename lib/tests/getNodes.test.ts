@@ -12,17 +12,11 @@ import {
 } from "../src/internal/entities/Content";
 
 describe("getNodes", () => {
-  test("Should throw an error when nodes array is empty", () => {
+  test("Should return an empty array when nodes array is empty", () => {
     const json = getLoreHubJson(empty);
 
-    expect(() => getNodes(json)).toThrowError();
+    expect(getNodes(json)).toStrictEqual([]);
   });
-
-  // test("Should return nothing when nodes array is empty", () => {
-  //   const json = getLoreHubJson(empty);
-
-  //   expect(getNodes(json)).toStrictEqual([]);
-  // });
 
   test("1-plain-text-dialog-single-line should convert", () => {
     // arrange
