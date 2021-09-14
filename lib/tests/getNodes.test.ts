@@ -1,5 +1,6 @@
 import getNodes from "../src/internal/getNodes";
 import plain_text_dialog_single_line from "./jsonExamples/1-plain-text-dialog-single-line";
+import plain_text_dialog_single_line_wrong_order from './jsonExamples//1a-plain-text-dialog-single-line-wrong-order';
 import plain_text_multiple_line from "./jsonExamples/2-plain-text-multiple-line";
 import with_refs from './jsonExamples/3-with-refs';
 import with_refs_explicit_names from './jsonExamples/4-with-refs-explicit-names'
@@ -26,6 +27,30 @@ describe("getNodes", () => {
     );
 
     const json = getLoreHubJson(plain_text_dialog_single_line);
+
+    // act
+    const result = getNodes(json);
+
+    expect(result).toStrictEqual(expected);
+  });
+
+  test("1-plain-text-dialog-single-line-wrong-order should convert", () => {
+    // arrange
+    const expected = [];
+    expected.push(
+      new DialogNode(
+        "2e086dc2-1ec1-4e0c-97c7-11bf5d90fb75",
+        "c94ae77d-c988-4d2a-906b-3b1526e2c044",
+        [new ContentText("This is simple one line dialog with two nodes.")]
+      )
+    );
+    expected.push(
+      new DialogNode("c94ae77d-c988-4d2a-906b-3b1526e2c044", "", [
+        new ContentText("This is the second node from LoreHub with ❤"),
+      ])
+    );
+
+    const json = getLoreHubJson(plain_text_dialog_single_line_wrong_order);
 
     // act
     const result = getNodes(json);
