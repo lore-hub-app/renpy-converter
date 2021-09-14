@@ -18,7 +18,17 @@
       { "ts": "never", "js": "never" }
     ],
     "import/prefer-default-export": "off",
-    "no-unused-vars": "off"
+    "no-unused-vars": "off",
+
+    "camelcase": "warn",
+    "import/no-extraneous-dependencies": [
+      "warn",
+      { "devDependencies": ["**/*.test.ts"] }
+    ],
+    "max-classes-per-file": "warn",
+    "no-else-return": "warn",
+    "no-empty-function": "warn",
+    "no-useless-constructor": "warn"
   },
   "settings": {
     "import/resolver": "typescript"

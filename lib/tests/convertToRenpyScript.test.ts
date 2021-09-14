@@ -1,3 +1,5 @@
+import { describe, expect, test } from "@jest/globals";
+
 import getNodes from "../src/internal/getNodes";
 import getLoreHubJson from "../src/internal/getLoreHubJson";
 import convertToRenpyScript from "../src/internal/convertToRenpyScript";
@@ -7,7 +9,6 @@ import plain_text_dialog_single_line from "./jsonExamples/1-plain-text-dialog-si
 import plain_text_multiple_line from "./jsonExamples/2-plain-text-multiple-line";
 import with_refs from "./jsonExamples/3-with-refs";
 import with_refs_explicit_names from "./jsonExamples/4-with-refs-explicit-names";
-import branching_dialog from "./jsonExamples/5-branching-dialog";
 
 describe("convertToRenpyScript.test", () => {
   test("1-plain-text-dialog-single-line should convert", () => {
