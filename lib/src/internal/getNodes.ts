@@ -1,7 +1,12 @@
 import DialogNode from "./entities/DialogNode";
 import { LoreHubJson } from "./dto/LoreHubJson";
 
-export default ({ nodes }: LoreHubJson) =>
-  nodes
+export default (json: LoreHubJson): DialogNode[] => {
+  const startNode = json.nodes.find((n) => n.id === json.starting_node_id);
+
+  if (!startNode) return [];
+
+  return json.nodes
     .sort((prev, next) => (next?.id === prev?.next_node_id ? -1 : 1))
-    .map((node) => DialogNode.buildFromUnknown(node));
+    .map((node) => DialogNode.buildNode(node));
+};
