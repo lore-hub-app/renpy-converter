@@ -18,7 +18,7 @@ describe("getNodes", () => {
   test("Should return an empty array when nodes array is empty", () => {
     const json = getLoreHubJson(empty);
 
-    expect(getNodes(json)).toStrictEqual([]);
+    expect(() => getNodes(json)).toThrowError();
   });
 
   test("1-plain-text-dialog-single-line should convert", () => {
