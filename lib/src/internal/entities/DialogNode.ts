@@ -12,7 +12,7 @@ export default class DialogNode {
     public readonly id: string,
     public readonly next_node_id: string | null,
     public readonly contents: Array<Content>
-  ) { }
+  ) {}
 
   static buildNode(data: LoreHubJsonNode): DialogNode {
     const contents = [];

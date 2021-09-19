@@ -1,6 +1,7 @@
 import { describe, expect, test } from "@jest/globals";
 
 import getNodes from "../src/internal/getNodes";
+import empty from "./jsonExamples/0-empty";
 import plain_text_dialog_single_line from "./jsonExamples/1-plain-text-dialog-single-line";
 import plain_text_dialog_single_line_wrong_order from "./jsonExamples/1a-plain-text-dialog-single-line-wrong-order";
 import plain_text_multiple_line from "./jsonExamples/2-plain-text-multiple-line";
@@ -14,6 +15,12 @@ import {
 } from "../src/internal/entities/Content";
 
 describe("getNodes", () => {
+  test("Should return an empty array when nodes array is empty", () => {
+    const json = getLoreHubJson(empty);
+
+    expect(() => getNodes(json)).toThrowError();
+  });
+
   test("1-plain-text-dialog-single-line should convert", () => {
     // arrange
     const expected = [];
