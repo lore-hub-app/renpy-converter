@@ -4,31 +4,44 @@
     "node": true,
     "es2021": true
   },
-  "extends": ["airbnb-base", "plugin:import/typescript", "prettier"],
+  "extends": [
+    "airbnb-base",
+    "plugin:import/typescript",
+    "prettier"
+  ],
   "parser": "@typescript-eslint/parser",
   "parserOptions": {
     "ecmaVersion": 12
   },
-  "plugins": ["@typescript-eslint", "eslint-plugin-prettier"],
+  "plugins": [
+    "@typescript-eslint",
+    "eslint-plugin-prettier"
+  ],
   "rules": {
     "@typescript-eslint/no-unused-vars": "error",
     "import/extensions": [
       "error",
       "ignorePackages",
-      { "ts": "never", "js": "never" }
+      {
+        "ts": "never",
+        "js": "never"
+      }
     ],
     "import/prefer-default-export": "off",
     "no-unused-vars": "off",
-
-    "camelcase": "warn",
+    "camelcase": "off",
     "import/no-extraneous-dependencies": [
       "warn",
-      { "devDependencies": ["**/*.test.ts"] }
+      {
+        "devDependencies": [
+          "**/*.test.ts"
+        ]
+      }
     ],
-    "max-classes-per-file": "warn",
+    "max-classes-per-file": "off",
     "no-else-return": "warn",
-    "no-empty-function": "warn",
-    "no-useless-constructor": "warn"
+    "no-empty-function": "off",
+    "no-useless-constructor": "off"
   },
   "settings": {
     "import/resolver": "typescript"
