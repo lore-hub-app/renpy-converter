@@ -15,7 +15,6 @@
     "lint": "eslint . --ext .js,.ts --fix",
     "lint-check": "eslint . --ext .js,.ts",
     "prettify": "prettier . --write",
-    "prepare": "cd .. && husky install lib/.husky",
     "test": "jest"
   },
   "author": "Andrei Kniazev <worldpwn@hotmail.com>",
