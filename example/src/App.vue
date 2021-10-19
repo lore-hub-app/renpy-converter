@@ -23,12 +23,12 @@
 
 <script lang="ts">
 import { defineComponent } from "vue";
-import convert from "../../lib/src/index";
-import one from "../../lib/tests/jsonExamples/1-plain-text-dialog-single-line";
-import two from "../../lib/tests/jsonExamples/2-plain-text-multiple-line";
-import three from "../../lib/tests/jsonExamples/3-with-refs";
-import four from "../../lib/tests/jsonExamples/4-with-refs-explicit-names";
-import five from "../../lib/tests/jsonExamples/5-branching-dialog";
+import { convert } from "renpy-converter";
+import one from "./json-examples/1-plain-text-dialog-single-line";
+import two from "./json-examples/2-plain-text-multiple-line";
+import three from "./json-examples/3-with-refs";
+import four from "./json-examples/4-with-refs-explicit-names";
+import five from "./json-examples/5-branching-dialog";
 
 export default defineComponent({
   name: "Renpy Converter",
