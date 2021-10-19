@@ -2,7 +2,7 @@
   "name": "renpy-converter",
   "version": "1.0.0",
   "description": "",
-  "main": "index.js",
+  "main": "./dist/index.js",
   "repository": {
     "type": "git",
     "url": "git+https://github.com/lore-hub-app/renpy-converter.git"
@@ -15,7 +15,8 @@
     "lint": "eslint . --ext .js,.ts --fix",
     "lint-check": "eslint . --ext .js,.ts",
     "prettify": "prettier . --write",
-    "test": "jest"
+    "test": "jest",
+    "build": "tsc -b"
   },
   "author": "Andrei Kniazev <worldpwn@hotmail.com>",
   "license": "ISC",
