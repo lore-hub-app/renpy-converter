@@ -13,6 +13,9 @@ jobs:
     steps:
       - uses: actions/checkout@v2
       - uses: actions/setup-node@v2
+      - run: npm run build
+        name: Build Library
+        working-directory: lib
       - run: npm ci
         working-directory: example
       - run: npm run build

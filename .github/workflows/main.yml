@@ -19,5 +19,7 @@ jobs:
         working-directory: lib
       - run: npm run lint-check
         working-directory: lib
+      - run: npm run build
+        working-directory: lib
       - run: npm run test
         working-directory: lib
