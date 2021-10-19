@@ -2,6 +2,7 @@ import { describe, expect, test } from "@jest/globals";
 
 import getNodes from "../src/internal/getNodes";
 import empty from "./jsonExamples/0-empty";
+import dialog_with_orphan_nodes from './jsonExamples/1-dialog-with-orphan-nodes';
 import plain_text_dialog_single_line from "./jsonExamples/1-plain-text-dialog-single-line";
 import plain_text_dialog_single_line_wrong_order from "./jsonExamples/1a-plain-text-dialog-single-line-wrong-order";
 import plain_text_multiple_line from "./jsonExamples/2-plain-text-multiple-line";
@@ -19,6 +20,25 @@ describe("getNodes", () => {
     const json = getLoreHubJson(empty);
 
     expect(() => getNodes(json)).toThrowError();
+  });
+
+  test("1-dialog-with-orphan-nodes should convert", () => {
+    // arrange
+    const expected = [];
+    expected.push(
+      new DialogNode(
+        "2e086dc2-1ec1-4e0c-97c7-11bf5d90fb75",
+        "c94ae77d-c988-4d2a-906b-3b1526e2c044",
+        [new ContentText("This is simple one line dialog with two nodes.")]
+      )
+    );
+    const json = getLoreHubJson(dialog_with_orphan_nodes);
+
+    // act
+    const result = getNodes(json);
+
+    // assert
+    expect(result).toStrictEqual(expected);
   });
 
   test("1-plain-text-dialog-single-line should convert", () => {
