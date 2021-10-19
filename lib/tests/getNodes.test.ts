@@ -28,7 +28,7 @@ describe("getNodes", () => {
     expected.push(
       new DialogNode(
         "2e086dc2-1ec1-4e0c-97c7-11bf5d90fb75",
-        "c94ae77d-c988-4d2a-906b-3b1526e2c044",
+        null,
         [new ContentText("This is simple one line dialog with two nodes.")]
       )
     );
