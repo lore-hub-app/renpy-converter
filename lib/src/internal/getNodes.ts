@@ -9,7 +9,8 @@ export default function getNodes(json: LoreHubJson): Array<DialogNode> {
   orderedNodes.push(startNode);
   let nextNode: LoreHubJsonNode | undefined = startNode;
   while (nextNode != null && nextNode.next_node_id != null) {
-    nextNode = json.nodes.find((n) => n.id === nextNode?.next_node_id);
+    const nextNodeId: string | null = nextNode?.next_node_id ?? null;
+    nextNode = json.nodes.find((n) => n.id === nextNodeId);
     if (nextNode == null) break;
     orderedNodes.push(nextNode);
   }
